@@ -1,7 +1,7 @@
 class LocationService
 
-  def get_geocode(address
-    conn
+  def get_geocode(address)
+    json_respons = conn.get
   end
 
   def conn
