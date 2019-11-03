@@ -10,7 +10,7 @@ describe 'Road trip api' do
     post "/api/v1/road_trip", params: user_info, headers: headers
 
     expect(response).to be_successful
-    results = JSON.pase(response.body, symbolize_naems: true)
+    results = JSON.parse(response.body, symbolize_naems: true)
 
     expect(results).to be_a Hash
     expect(results[:data][:attributes][:distance]).to eg("223 mi")
