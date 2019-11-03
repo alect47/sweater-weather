@@ -12,7 +12,7 @@ describe "Location api service" do
     expect(raw_data[:results][0][:geometry][:location]).to have_key(:lng)
   end
 
-  it "can get travel tiem and distance" do
+  it "can get travel time and distance" do
     origin = "denver,co"
     destination = "Pueblo,co"
 
