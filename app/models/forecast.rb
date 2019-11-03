@@ -1,5 +1,5 @@
 class Forecast
-  attr_reader :id, :address, :currently, :hourly, :daily, :today, :tonight
+  attr_reader :id, :address, :currently, :tonight, :hourly, :daily, :today
 
   def initialize(forecast_hash, location)
     @id = rand(0..999999)
