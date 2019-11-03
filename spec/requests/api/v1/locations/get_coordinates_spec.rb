@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Geocoder api" do
   it "user can get coordinates" do
-    get "/api/v1/coordinates?location=DENVER,CO"
+    get "/api/v1/coordinates?location=denver,co"
 
     expect(response).to be_successful
 
