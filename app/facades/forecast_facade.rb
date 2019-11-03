@@ -5,10 +5,14 @@ class ForecastFacade
   end
 
   def forecast
-    Forecast.new(forecast_service, @location)
+    Forecast.new(forecast_service, location)
   end
 
   def forecast_service
-    DarkSkyService.new.get_forecast(@location.latitude, @location.longitude)
+    DarkSkyService.new.get_forecast(location.latitude, location.longitude)
+  end
+
+  def location
+    LocationFacade.new(@location).location_info
   end
 end
