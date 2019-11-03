@@ -12,7 +12,7 @@ class Forecast
   end
 
   def tonight
-    hour = @hourly[:data].find do |hour|
+    hour = @hourly[:data][0..20].find do |hour|
       hour[:icon].include?("night")
     end
     @tonight = hour[:summary]
