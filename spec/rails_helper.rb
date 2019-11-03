@@ -64,6 +64,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+
+end
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :rspec
@@ -71,4 +73,15 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-end
+
+  VCR.configure do |config|
+    config.allow_http_connections_when_no_cassette = true
+    config.ignore_localhost = true
+    config.cassette_library_dir = 'spec/cassettes'
+    config.hook_into :webmock
+    config.configure_rspec_metadata!
+    config.filter_sensitive_data("<GOOGLE_API_KEY>") { ENV['GOOGLE_API_KEY'] }
+    config.filter_sensitive_data("<DARK_SKY_KEY>") { ENV['DARK_SKY_KEY'] }
+    config.filter_sensitive_data("<FLICKR_KEY>") { ENV['FLICKR_KEY'] }
+    config.filter_sensitive_data("<AMYPODE_KEY>") { ENV['AMYPODE_KEY'] }
+  end

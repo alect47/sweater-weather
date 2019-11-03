@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Location api service" do
-  it "can get cities latitude and logitive" do
+  it "can get cities latitude and logitive", :vcr do
     address_1 = "denver,co"
 
     service = LocationService.new
@@ -12,7 +12,7 @@ describe "Location api service" do
     expect(raw_data[:results][0][:geometry][:location]).to have_key(:lng)
   end
 
-  it "can get travel time and distance" do
+  it "can get travel time and distance", :vcr do
     origin = "denver,co"
     destination = "Pueblo,co"
 

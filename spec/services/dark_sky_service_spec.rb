@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Dark Sky api service" do
-  it "can get weather for location with manual input" do
+  it "can get weather for location with manual input", :vcr do
     lat = "39.7392358"
     lng = "-104.990251"
 
@@ -15,7 +15,7 @@ describe "Dark Sky api service" do
     expect(raw_data).to have_key(:daily)
   end
 
-  it "can get weather for location with timet" do
+  it "can get weather for location with time", :vcr do
     lat = "39.7392358"
     lng = "-104.990251"
 

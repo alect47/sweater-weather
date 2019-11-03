@@ -31,12 +31,3 @@ describe "User api" do
     expect(user_response["errors"]).to eq("Invalid credentials: Password can't be blank and Email can't be blank")
   end
 end
-
-
-
-
-# you could call it user info
-# let(:user_attribute) {{email: password: password_confirmation}}
-
-# post user, not user
-# params: user_attributes

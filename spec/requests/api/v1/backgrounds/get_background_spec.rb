@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Location api" do
-  it "user can get forecast info for location" do
+  it "user can get forecast info for location", :vcr do
     get "/api/v1/backgrounds?location=denver,co"
 
     expect(response).to be_successful
