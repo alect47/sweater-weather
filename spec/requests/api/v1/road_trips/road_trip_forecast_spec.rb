@@ -13,9 +13,9 @@ describe 'Road trip api' do
     results = JSON.parse(response.body, symbolize_names: true)
 
     expect(results).to be_a Hash
-    # expect(results[:data][:attributes][:distance]).to eg("223 mi")
+
     expect(results[:data][:attributes][:travel_time]).to eq("1 hour 48 mins")
-    # expect(results[:data][:attributes][:forecast]).to be_a Hash
+    
     expect(results[:data][:attributes][:temperature]).to be_a Float
     expect(results[:data][:attributes][:summary]).to be_a String
   end
