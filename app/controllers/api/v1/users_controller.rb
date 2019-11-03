@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     user = User.new(user_params)
     user.update(api_key: user.api_key_generator)
     if user.save
-      render json: UserSerializer.new(user).json
+      render json: UserSerializer.new(user).json, status: 201
     else
       errors = user.errors.full_messages.to_sentence
       # maybe reword this?
