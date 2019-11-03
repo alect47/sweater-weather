@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         get '/coordinates', to: 'location#show'
         get '/backgrounds', to: 'background#show'
         post '/users', to: 'users#create'
+        post '/sessions', to: 'sessions#create'
       end
     end
   end
