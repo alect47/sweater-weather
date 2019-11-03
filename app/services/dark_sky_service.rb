@@ -1,6 +1,6 @@
 class DarkSkyService
 
-  def get_geocode(lat, lng)
+  def get_forecast(lat, lng)
     json_response = conn.get("#{lat},#{lng}")
     weather_data = JSON.parse(json_response.body, symbolize_names: true)
   end
