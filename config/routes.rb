@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # root 'welcome#index'
   get '/', to: 'welcome#index'
-end
+
+  namespace :api do
+      namespace :v1 do
+        get '/forecast', to: 'forecast#show'
+        get '/coordinates', to: 'location#show'
+      end
+    end
+  end

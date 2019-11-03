@@ -6,10 +6,9 @@ describe "Location api service" do
 
     service = LocationService.new
     raw_data = service.get_geocode(address_1)
-
     expect(service).to be_a(LocationService)
     expect(raw_data).to be_a(Hash)
-    expect(raw_data[:results][0][:geometry][:locations]).to have_key(:lat)
-    expect(raw_data[:results][0][:geometry][:locations]).to have_key(:long)
+    expect(raw_data[:results][0][:geometry][:location]).to have_key(:lat)
+    expect(raw_data[:results][0][:geometry][:location]).to have_key(:lng)
   end
 end
