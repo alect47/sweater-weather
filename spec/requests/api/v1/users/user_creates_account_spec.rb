@@ -12,6 +12,7 @@ describe "User api" do
     post "/api/v1/users", params: user_info, headers: headers
 
     expect(response).to be_successful
+    expect(response.status).to eq(201)
 
     user_response = JSON.parse(response.body)
     expect(user_response["api_key"]).to eq("862e67f49fcf4be0cd49570633e97771")
