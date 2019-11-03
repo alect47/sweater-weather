@@ -11,6 +11,6 @@ class LocationFacade
 private
 
   def location_service
-    LocationService.new.get_geocode(@location)
+    @location_service ||= LocationService.new.get_geocode(@location)
   end
 end

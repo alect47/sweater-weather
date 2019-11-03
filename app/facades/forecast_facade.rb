@@ -8,7 +8,6 @@ class ForecastFacade
     Forecast.new(forecast_service, location)
   end
 
-
 private
 
   def forecast_service
