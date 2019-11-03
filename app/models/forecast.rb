@@ -7,6 +7,7 @@ class Forecast
     @today = forecast_hash[:daily][:data][0]
     @hourly = forecast_hash[:hourly]
     @daily = forecast_hash[:daily][:data]
+    binding.pry
     @tonight= ("#{tonight} and then #{tonight_last}")
     @address = location.address
   end
@@ -15,13 +16,13 @@ class Forecast
     hour = @hourly[:data][0..20].find do |hour|
       hour[:icon].include?("night")
     end
-    @tonight = hour[:summary]
+    hour[:summary]
   end
 
   def tonight_last
-    hour = @hourly[:data].find_all do |hour|
+    hour = @hourly[:data][0..20].find_all do |hour|
       hour[:icon].include?("night")
     end.last
-    @tonight = hour[:summary]
+    hour[:summary]
   end
 end
