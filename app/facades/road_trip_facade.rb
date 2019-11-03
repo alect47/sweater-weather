@@ -1,8 +1,8 @@
 class RoadTripFacade
 
-  def initialize(origin, destination)
-    @origin = origin
-    @destination = destination
+  def initialize(road_trip_params)
+    @origin = road_trip_params[:origin]
+    @destination = road_trip_params[:destination]
   end
 
   def road_trip
