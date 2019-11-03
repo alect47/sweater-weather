@@ -10,7 +10,7 @@ describe "Dark Sky api service" do
     expect(service).to be_a(DarkSkyService)
     expect(raw_data).to be_a(Hash)
     expect(raw_data).to have_key(:currently)
-    expect(raw_data[:currently][:time]).to eq(Time.now.to_i)
+    expect(raw_data[:currently][:time].to_s.length).to eq(10)
     expect(raw_data).to have_key(:hourly)
     expect(raw_data).to have_key(:daily)
   end

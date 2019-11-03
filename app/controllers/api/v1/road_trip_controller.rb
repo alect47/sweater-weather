@@ -6,7 +6,7 @@ class Api::V1::RoadTripController < ApplicationController
                   params[:road_trip][:destination]).road_trip
       render json: RoadTripSerializer.new(road_trip)
     else
-      render json: { errors: "Invalid Api Key"}, status: 401
+      render json: { errors: "Invalid or missing Api Key"}, status: 401
     end
   end
 end
