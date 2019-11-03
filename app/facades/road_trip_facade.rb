@@ -19,7 +19,7 @@ class RoadTripFacade
 
   def arrival_time
     current_time = Time.now.to_i
-    arrival_time = current_time + get_travel_time
+    current_time + get_travel_time
   end
 
   def get_travel_time
