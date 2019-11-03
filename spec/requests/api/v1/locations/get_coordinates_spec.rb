@@ -10,7 +10,7 @@ describe "Geocoder api" do
 
     # add more nested tests for these hashes
     expect(coordinates["data"]["attributes"]["latitude"]).to eq(39.7392358)
-    expect(coordinates["data"]["attributes"]["longitude"]).to eq(-104.990251)
+    expect(coordinates["data"]["attributes"]["longitude"]).to eq(39.7392358)
     expect(coordinates["data"]["attributes"]["address"]).to eq("Denver, CO, USA")
   end
 end

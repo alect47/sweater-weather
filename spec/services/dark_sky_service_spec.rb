@@ -6,7 +6,7 @@ describe "Dark Sky api service" do
     lng = "-104.990251"
 
     service = DarkSkyService.new
-    raw_data = service.get_geocode(lat, lng)
+    raw_data = service.get_forecast(lat, lng)
     expect(service).to be_a(DarkSkyService)
     expect(raw_data).to be_a(Hash)
     expect(raw_data).to have_key(:currently)
