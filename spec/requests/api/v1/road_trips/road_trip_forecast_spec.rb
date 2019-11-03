@@ -12,6 +12,8 @@ describe 'Road trip api' do
     expect(response).to be_successful
     results = JSON.parse(response.body, symbolize_naems: true)
 
+    # Conver time to unix (Time.now.to_i) add duration[:value] and then add the two and do
+    # then the sume is the input for the service
     expect(results).to be_a Hash
     expect(results[:data][:attributes][:distance]).to eg("223 mi")
     expect(results[:data][:attributes][:travel_time]).to eg("223 mi")
