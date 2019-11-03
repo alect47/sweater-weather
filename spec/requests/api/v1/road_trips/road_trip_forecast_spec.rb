@@ -18,6 +18,7 @@ describe 'Road trip api' do
     expect(results[:data][:attributes][:temperature]).to be_a Float
     expect(results[:data][:attributes][:summary]).to be_a String
   end
+  
   it 'user has invalid api key' do
     user = User.create!(email: 'alec@gmail.com', password: 'password', api_key: 'jgn983hy48thw9begh98h4539h4')
 

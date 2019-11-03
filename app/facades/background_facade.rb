@@ -10,11 +10,17 @@ class BackgroundFacade
     background_1
   end
 
-  def flickr_service
-    FlickrService.new.get_photos(location.latitude, location.longitude)
+  def location
+    Location.new(location_service)
   end
 
-  def location
-    LocationFacade.new(@location).location_info
+private
+
+  def flickr_service
+    @flicker_service ||=FlickrService.new.get_photos(location.latitude, location.longitude)
+  end
+
+  def location_service
+    @location_service ||= LocationService.new.get_geocode(@location)
   end
 end
