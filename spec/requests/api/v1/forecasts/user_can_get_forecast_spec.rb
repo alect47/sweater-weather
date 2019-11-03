@@ -7,15 +7,16 @@ describe "Location api" do
     expect(response).to be_successful
 
     forecast = JSON.parse(response.body)
-
+    # add more testing with stubs/mocks
     # add more nested tests for these hashes
     # could also just do instance varaible for address, lat, long instead
     # initialize forecast with location and dark_sky_hash
-    expect(forecast["data"]["attributes"]["location"]["address"]).to eq("Denver, CO, USA")
-    expect(forecast["data"]["attributes"]["location"]["latitude"]).to eq(39.7392358)
-    expect(forecast["data"]["attributes"]["location"]["longitude"]).to eq(39.7392358)
-    expect(forecast["data"]["attributes"]["currently"]).to eq("60.2")
-    expect(forecast["data"]["attributes"]["hourly"]).to eq("some time")
-    expect(forecast["data"]["attributes"]["daily"]).to eq("some time")
+    expect(forecast["data"]["attributes"]["address"]).to eq("Denver, CO, USA")
+    expect(forecast["data"]["attributes"]["currently"]).to be_a(Hash)
+    expect(forecast["data"]["attributes"]["currently"]).to have_key("icon")
+    expect(forecast["data"]["attributes"]["currently"]).to have_key("temperature")
+    expect(forecast["data"]["attributes"]["hourly"]).to be_a(Hash)
+    expect(forecast["data"]["attributes"]["daily"][0]).to be_a(Hash)
+    expect(forecast["data"]["attributes"]["today"]).to be_a(Hash)
   end
 end
