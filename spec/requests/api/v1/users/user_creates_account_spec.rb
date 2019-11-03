@@ -10,7 +10,7 @@ describe "User api" do
     user_info = '{"email": "email@example.com", "password": "password", "password_confirmation": "password"}'
     headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
     post "/api/v1/users", params: user_info, headers: headers
-
+    
     expect(response).to be_successful
 
     user_response = JSON.parse(response.body)

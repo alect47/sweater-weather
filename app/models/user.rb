@@ -1,5 +1,7 @@
-require 'securerandom'
+# require 'securerandom'
 class User < ApplicationRecord
+  before_create { }
+
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
