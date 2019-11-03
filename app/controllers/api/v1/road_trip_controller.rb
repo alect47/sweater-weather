@@ -4,6 +4,7 @@ class Api::V1::RoadTripController < ApplicationController
     if user
       road_trip = RoadTripFacade.new(params[:road_trip][:origin],
                   params[:road_trip][:destination]).road_trip
+      render json: RoadTripSerializer.new(road_trip)
     else
       render json: { errors: "Invalid Api Key"}, status: 401
     end

@@ -10,15 +10,13 @@ describe 'Road trip api' do
     post "/api/v1/road_trip", params: user_info, headers: headers
 
     expect(response).to be_successful
-    results = JSON.parse(response.body, symbolize_naems: true)
+    results = JSON.parse(response.body, symbolize_names: true)
 
-    # Conver time to unix (Time.now.to_i) add duration[:value] and then add the two and do
-    # then the sume is the input for the service
     expect(results).to be_a Hash
-    expect(results[:data][:attributes][:distance]).to eg("223 mi")
-    expect(results[:data][:attributes][:travel_time]).to eg("223 mi")
-    expect(results[:data][:attributes][:forecast]).to be_a Hash
-    expect(results[:data][:attributes][:forecast][:temperature]).to eq("70")
-    expect(results[:data][:attributes][:forecast][:summary]).to eq("Partly Cloudy")
+    # expect(results[:data][:attributes][:distance]).to eg("223 mi")
+    expect(results[:data][:attributes][:travel_time]).to eq("1 hour 48 mins")
+    # expect(results[:data][:attributes][:forecast]).to be_a Hash
+    expect(results[:data][:attributes][:temperature]).to be_a Float
+    expect(results[:data][:attributes][:summary]).to be_a String
   end
 end
