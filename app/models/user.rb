@@ -1,6 +1,5 @@
 # require 'securerandom'
 class User < ApplicationRecord
-  before_create { }
 
   has_secure_password
 
