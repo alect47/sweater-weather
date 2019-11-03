@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
 private
-
+  # f3c418add84bf900536ba54cb0db83ec
   def user_params
     json_parse(request)
   end
