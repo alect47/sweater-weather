@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  
+
   def create
     user = User.new(user_params)
     user.update(api_key: user.api_key_generator)
