@@ -7,11 +7,10 @@ describe "Antipode api service" do
 
     service = AntipodeService.new
     raw_data = service.get_antipode(lat, lng)
-    binding.pry
+
     expect(service).to be_a(AntipodeService)
     expect(raw_data).to be_a(Hash)
-    expect(raw_data).to have_key(:currently)
-    expect(raw_data).to have_key(:hourly)
-    expect(raw_data).to have_key(:daily)
+    expect(raw_data[:data][:attributes]).to have_key(:lat)
+    expect(raw_data[:data][:attributes]).to have_key(:long)
   end
 end
