@@ -1,7 +1,7 @@
 class Antipode
-  attr_reader :id, :antipode_hash, :
+  attr_reader :id
 
-  def initialize(antipode_hash, location)
+  def initialize(antipode_hash, forecast)
     @id = rand(0..999999)
     @antipode_hash = antipode_hash
     @location = location
