@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         get '/forecast', to: 'forecast#show'
         get '/coordinates', to: 'location#show'
         get '/backgrounds', to: 'background#show'
+        get '/antipode', to: 'antipode#show'
       end
     end
   end

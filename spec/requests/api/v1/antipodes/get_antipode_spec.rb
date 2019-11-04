@@ -10,6 +10,6 @@ describe "Antipode api" do
     expect(antipode["data"]["attributes"]["location_name"]).to eq("city")
     expect(antipode["data"]["attributes"]["forecast"]["summary"]).to eq("weather")
     expect(antipode["data"]["attributes"]["forecast"]["current_temperature"]).to eq("100")
-    expect(antipode["data"]["attributes"]["forecast"]["search_location"]).to eq("Hong Kong")
+    expect(antipode["data"]["attributes"]["search_location"]).to eq("Hong Kong")
   end
 end
