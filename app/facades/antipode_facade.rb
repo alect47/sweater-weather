@@ -1,12 +1,14 @@
 class AntipodeFacade
   attr_reader :location
 
-  def initialize(location)
+  #need to also get antipode city name
+  def initialize(location, forecast)
     @location = location
+    @forecast = forecast
   end
 
   def antipode
-    Antipode.new(antipode_service, location)
+    Antipode.new(antipode_service, @forecast)
   end
 
   def antipode_service
