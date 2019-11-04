@@ -7,12 +7,11 @@ describe "Antipode api" do
     expect(response).to be_successful
 
     antipode = JSON.parse(response.body)
-    # binding.pry
+    
     expect(antipode["data"]["attributes"]["location_name"]).to eq("M5J9+7P Cerrillos, Jujuy, Argentina")
     expect(antipode["data"]["attributes"]["forecast"]).to have_key("summary")
     expect(antipode["data"]["attributes"]["forecast"]).to have_key("current_temperature")
     expect(antipode["data"]["attributes"]["forecast"]["summary"]).to eq("Mostly cloudy throughout the day.")
-    # expect(antipode["data"]["attributes"]["forecast"]["current_temperature"]).to eq("71.48")
     expect(antipode["data"]["attributes"]["search_location"]).to eq("Hong Kong")
   end
 end
