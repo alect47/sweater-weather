@@ -14,9 +14,7 @@ class AntipodeFacade
   end
 
   def antipode_city
-    location = LocationService.new.get_address(lat, long)[:plus_code][:compound_code]
-
-    location_object = LocationFacade.new(location).location_info
+    location_object = LocationFacade.new(antipode_city_name).location_info
   end
 
   def antipode_city_name
