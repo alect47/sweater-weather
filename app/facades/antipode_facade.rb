@@ -39,7 +39,6 @@ class AntipodeFacade
   end
 
   def antipode
-    binding.pry
     Antipode.new(antipode_city_forecast, antipode_city_name, @location)
   end
 

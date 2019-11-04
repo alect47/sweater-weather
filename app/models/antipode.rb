@@ -1,12 +1,12 @@
 class Antipode
-  attr_reader :id, :summary
+  attr_reader :id, :location_name, :forecast, :search_location
 
-  def initialize(antipode_forecast, antipode_location, serach_city)
+  def initialize(antipode_forecast, antipode_location, search_city)
     @id = rand(0..999999)
-    # binding.pry
-    @antipode_location = antipode_location
-    @summary = antipode_forecast.daily[0][:summary]
-    @serach_city = search_city
+    @location_name = antipode_location
+    @forecast = {summary: antipode_forecast.daily[0][:summary],
+                current_temperature: antipode_forecast.currently[:temperature].to_s
+                }
+    @search_location = search_city.address
   end
-
 end
