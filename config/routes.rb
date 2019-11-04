@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       namespace :v1 do
         get '/forecast', to: 'forecast#show'
         get '/coordinates', to: 'location#show'
+        get '/backgrounds', to: 'background#show'
       end
     end
   end
