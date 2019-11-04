@@ -1,14 +1,12 @@
 class Antipode
-  attr_reader :id
+  attr_reader :id, :summary
 
-  def initialize(antipode_hash, forecast)
+  def initialize(antipode_forecast, antipode_location, serach_city)
     @id = rand(0..999999)
-    @antipode_hash = antipode_hash
-    @location = location
+    # binding.pry
+    @antipode_location = antipode_location
+    @summary = antipode_forecast.daily[0][:summary]
+    @serach_city = search_city
   end
 
-  def make_image_url
-    @flickr_hash[:photos][:photo].each do |photo|
-      @image_urls << "https://farm#{photo[:farm]}.staticflickr.com/#{photo[:server]}/#{photo[:id]}_#{photo[:secret]}_b.jpg"
-    end
-  end
+end
