@@ -1,8 +1,10 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    user = User.create(user_params)
-    binding.pry
-    user.update_attribute(:api_key, User.api_key_generator)
+    user = User.new(user_params)
+    user.update(api_key: user.api_key_generator)
+    if user.save
+      render json: UserSerializer.new(user).json
+    end
     # location = LocationFacade.new(params["location"]).location_info
     # render json: LocationSerializer.new(location)
   end
@@ -10,6 +12,6 @@ class Api::V1::UsersController < ApplicationController
 private
 
   def user_params
-    params.permit(:email, :password)
+    params.permit(:email, :password, :password_confirmation)
   end
 end

@@ -10,6 +10,7 @@ describe "User api" do
 
     expect(response).to be_successful
 
-    forecast = JSON.parse(response.body)
+    user_response = JSON.parse(response.body)
+    binding.pry
   end
 end
