@@ -5,8 +5,6 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render json: UserSerializer.new(user).json
     end
-    # location = LocationFacade.new(params["location"]).location_info
-    # render json: LocationSerializer.new(location)
   end
 
 private
