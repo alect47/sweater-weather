@@ -9,8 +9,8 @@ describe "User api" do
     post "/api/v1/users?email=email@example.com&password=password&password_confirmation=password"
 
     expect(response).to be_successful
-
     user_response = JSON.parse(response.body)
-    binding.pry
+
+    expect(user_response["api_key"]).to eq("862e67f49fcf4be0cd49570633e97771")
   end
 end
