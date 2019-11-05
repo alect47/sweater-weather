@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_secure_password
 
   def self.api_key_generator
-    SecureRandom.hex(27)
+    SecureRandom.hex
   end
 end
