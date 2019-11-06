@@ -13,28 +13,35 @@ class RoadTripFacade
     Forecast.new(forecast_service, location)
   end
 
-  def forecast_service
-    DarkSkyService.new.get_forecast(location.latitude, location.longitude, arrival_time)
-  end
-
   def arrival_time
     current_time = Time.now.to_i
-    current_time + get_travel_time
+    current_time + get_travel_time_num
   end
 
-  def get_travel_time
-    trip = LocationService.new.get_travel(@origin, @destination)
-    trip[:routes][0][:legs][0][:duration][:value]
+  def get_travel_time_num
+    location_service_travel[:routes][0][:legs][0][:duration][:value]
   end
 
   def total_travel_time
-    trip = LocationService.new.get_travel(@origin, @destination)
-    trip[:routes][0][:legs][0][:duration][:text]
+    location_service_travel[:routes][0][:legs][0][:duration][:text]
+  end
+
+private
+
+  def forecast_service
+    @forecast_service ||=DarkSkyService.new.get_forecast(location.latitude, location.longitude, arrival_time)
+  end
+
+  def location_service_geocode
+    @location_service  ||= LocationService.new.get_geocode(@destination)
+  end
+
+  def location_service_travel
+    @location_service_travel  ||= LocationService.new.get_travel(@origin, @destination)
   end
 
   def location
-    location = LocationService.new.get_geocode(@destination)
-    Location.new(location)
+    @location ||=Location.new(location_service_geocode)
   end
 
 end

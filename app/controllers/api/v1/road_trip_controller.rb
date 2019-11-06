@@ -10,9 +10,4 @@ class Api::V1::RoadTripController < ApplicationController
     end
   end
 
-  private
-
-  # def road_trip_params
-  #   params.require(:road_trip).permit(:api_key, :origin, :destination)
-  # end
 end
