@@ -6,7 +6,7 @@ class DarkSkyService
     else
       json_response = conn.get("#{lat},#{lng}")
     end
-    weather_data = JSON.parse(json_response.body, symbolize_names: true)
+    JSON.parse(json_response.body, symbolize_names: true)
   end
 
   def conn

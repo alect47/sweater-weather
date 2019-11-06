@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Flickr api service" do
-  it "can get image info by location" do
+  it "can get image info by location", :vcr do
     lat = 51.6723432
     long = 0.148271
 

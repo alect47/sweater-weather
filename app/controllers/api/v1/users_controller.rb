@@ -7,13 +7,11 @@ class Api::V1::UsersController < ApplicationController
       render json: UserSerializer.new(user).json, status: 201
     else
       errors = user.errors.full_messages.to_sentence
-      # maybe reword this?
       render json: { errors: "Invalid credentials: #{errors}"}, status: 400
     end
   end
 
 private
-  # f3c418add84bf900536ba54cb0db83ec
   def user_params
     json_parse(request)
   end

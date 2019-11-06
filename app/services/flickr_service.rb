@@ -11,7 +11,7 @@ class FlickrService
                                         format: "json",
                                         nojsoncallback: "1",
                                         })
-    photo_data = JSON.parse(json_response.body, symbolize_names: true)
+    JSON.parse(json_response.body, symbolize_names: true)
   end
 
   def conn

@@ -23,5 +23,4 @@ describe "User api" do
     user_response = JSON.parse(response.body)
     expect(user_response["errors"]).to eq("Invalid username or password")
   end
-# 493401b34500783883cbedbb5952bc94
 end
