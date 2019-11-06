@@ -1,8 +1,8 @@
 class RoadTripFacade
 
-  def initialize(origin, destination)
-    @origin = origin
-    @destination = destination
+  def initialize(road_trip_params)
+    @origin = road_trip_params[:origin]
+    @destination = road_trip_params[:destination]
   end
 
   def road_trip
@@ -19,7 +19,7 @@ class RoadTripFacade
 
   def arrival_time
     current_time = Time.now.to_i
-    arrival_time = current_time + get_travel_time
+    current_time + get_travel_time
   end
 
   def get_travel_time
