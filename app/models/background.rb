@@ -1,8 +1,6 @@
 class Background
   attr_reader :id, :image_urls
 
-  # think about refactoring this to make hash look different
-  # maybe add tonight?
   def initialize(flickr_hash)
     @id = rand(0..999999)
     @flickr_hash = flickr_hash

@@ -43,5 +43,4 @@ private
   def location
     @location ||=Location.new(location_service_geocode)
   end
-
 end

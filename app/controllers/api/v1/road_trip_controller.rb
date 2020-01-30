@@ -9,5 +9,4 @@ class Api::V1::RoadTripController < ApplicationController
       render json: { errors: "Invalid or missing Api Key"}, status: 401
     end
   end
-
 end

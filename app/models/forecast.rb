@@ -7,7 +7,6 @@ class Forecast
     @today = forecast_hash[:daily][:data][0]
     @hourly = forecast_hash[:hourly]
     @daily = forecast_hash[:daily][:data]
-    binding.pry
     @tonight= ("#{tonight} and then #{tonight_last}")
     @address = location.address
   end

@@ -10,5 +10,4 @@ class Api::V1::SessionsController < ApplicationController
       render json: { errors: "Invalid username or password"}, status: 400
     end
   end
-
 end
