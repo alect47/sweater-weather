@@ -2,12 +2,12 @@ class Forecast
   attr_reader :id, :address, :currently, :tonight, :hourly, :daily, :today
 
   def initialize(forecast_hash, location)
-    @id = rand(0..999999)
+    @id = rand(0..9999999)
     @currently = forecast_hash[:currently]
     @today = forecast_hash[:daily][:data][0]
     @hourly = forecast_hash[:hourly]
     @daily = forecast_hash[:daily][:data]
-    @tonight= ("#{tonight} and then #{tonight_last}")
+    @tonight= ("The forecast for tonight will start as #{tonight} and then #{tonight_last}")
     @address = location.address
   end
 
